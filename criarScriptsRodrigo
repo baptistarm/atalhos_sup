@@ -1,0 +1,56 @@
+#!/bin/bash
+
+DIR=/usr/bin/;
+
+#Removendo arquivos caso eles já existam
+if [ -e "$DIR"afm_restart ]; then
+	sudo rm /usr/bin/afm_restart;
+fi
+
+if [ -e "$DIR"cache_limpar ]; then
+	sudo rm /usr/bin/cache_limpar;
+fi
+
+if [ -e "$DIR"novodebug ]; then
+	sudo rm /usr/bin/novodebug;
+fi
+
+#if [ -e "$DIR"odebug ]; then
+#sudo rm /usr/bin/odebug;
+#fi
+
+#Alterando permissao dos arquivos criados
+sudo chmod 777 /usr/bin/afm_restart;
+sudo chmod 777 /usr/bin/cache_limpar;
+sudo chmod 777 /usr/bin/novodebug;
+#sudo chmod 777 /usr/bin/odebug;
+
+#Criando arquivos
+sudo touch /usr/bin/afm_restart;
+sudo touch /usr/bin/cache_limpar;
+sudo touch /usr/bin/novodebug;
+#sudo touch /usr/bin/odebug;
+
+#Adicionando conteudo no arquivo afm_restart
+echo "#!/bin/bash" >> usr/bin/afm_restart;
+echo "\n" >> /usr/bin/afm_restart;
+echo "sudo /etc/init.d/apache2 restart;" >> /usr/bin/afm_restart;
+echo "sudo /etc/init.d/mysql restart;" >> /usr/bin/afm_restart;
+echo "sudo /etc/init.d/firebird2.5-superclassic restart;" >> /usr/bin/afm_restart;
+
+#Adicionando conteudo no arquivo cache_limpar
+echo "#!/bin/bash" >> usr/bin/cache_limpar;
+echo "\n" >> usr/bin/cache_limpar;
+echo "sudo init.d limparcache;" >> usr/bin/cache_limpar;
+
+#Adicionando conteudo no arquivo novodebug
+echo "#!bin/bash" >> usr/bin/novodebug;
+echo "\n" >> usr/bin/novodebug;
+echo "sudo rm /home/cloud/var/log/debug.txt;" >> usr/bin/novodebug;
+echo "sudo touch /home/cloud/var/log/debug.txt" >> usr/bin/novodebug;
+echo "sudo chmod 777 /home/cloud/var/log/debug.txt" >> usr/bin/novodebug;
+
+#Adicionando conteudo no arquivo odebug
+#echo "#!/bin/bash" >> usr/bin/odebug;
+#echo "\n" >> usr/bin/odebug;
+#echo "sudo gedit /home/cloud/var/log/debug.txt &" >> usr/bin/odebug;
