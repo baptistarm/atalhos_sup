@@ -19,17 +19,17 @@ fi
 #sudo rm /usr/bin/odebug;
 #fi
 
-#Alterando permissao dos arquivos criados
-sudo chmod 777 /usr/bin/afm_restart;
-sudo chmod 777 /usr/bin/cache_limpar;
-sudo chmod 777 /usr/bin/novodebug;
-#sudo chmod 777 /usr/bin/odebug;
-
 #Criando arquivos
 sudo touch /usr/bin/afm_restart;
 sudo touch /usr/bin/cache_limpar;
 sudo touch /usr/bin/novodebug;
 #sudo touch /usr/bin/odebug;
+
+#Alterando permissao dos arquivos criados
+sudo chmod 777 /usr/bin/afm_restart;
+sudo chmod 777 /usr/bin/cache_limpar;
+sudo chmod 777 /usr/bin/novodebug;
+#sudo chmod 777 /usr/bin/odebug;
 
 #Adicionando conteudo no arquivo afm_restart
 echo "#!/bin/bash" >> usr/bin/afm_restart;
